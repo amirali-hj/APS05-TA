@@ -1,0 +1,19 @@
+create_table simple_users name string required;age int required;score int optional
+insert into simple_users name:ali;age:20;score:100
+insert into simple_users name:reza;age:25;score:150
+insert into simple_users name:ali;age:30;score:200
+select name;age;score from simple_users where age > 15
+update simple_users where name = ali set score 500
+select name;score from simple_users where name = ali
+create_enhanced_table products id int required;name string required;category string required
+insert into products id:10;name:laptop;category:tech
+insert into products id:5;name:mouse;category:tech
+insert into products id:20;name:monitor;category:tech
+insert into products id:10;name:duplicate_id;category:other
+insert into products id:30;category:incomplete
+select id;name from products where category = tech
+update products where id = 5 set name gaming_mouse
+select id;name from products where id < 15
+drop_table simple_users
+select name from simple_users where age = 20
+drop_table products
